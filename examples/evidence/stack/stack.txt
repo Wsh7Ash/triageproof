@@ -1,0 +1,10 @@
+Program received signal SIGSEGV, Segmentation fault.
+0x000055d1a2f13f2a in parse_header (buf=0x0, len=512) at /build/release/src/parse.c:88
+88          memcpy(dst, buf, len);
+#0  0x000055d1a2f13f2a in parse_header (buf=0x0, len=512) at /build/release/src/parse.c:88
+#1  0x000055d1a2f14a11 in handle_request (req=0x7fff) at /build/release/src/handler.c:142
+#2  0x000055d1a2f16120 in serve_forever () at /build/release/src/server.c:57
+#3  0x000055d1a2f1f8c4 in http_dispatch (conn=0x1) at /build/release/src/http.c:204
+#4  0x000055d1a2f20010 in connection_loop () at /build/release/src/http.c:301
+#5  0x00007f2c88a29f8a in start_thread (arg=0x7f2c) at pthread_create.c:442
+#6  0x00007f2c88aaa8cd in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:100

@@ -1,0 +1,44 @@
+{
+  "schema": "triageproof.bundle/v1",
+  "count": 4,
+  "total_bytes": 1132,
+  "kinds": [
+    "crash",
+    "repro",
+    "stack",
+    "version"
+  ],
+  "required": [
+    "crash",
+    "stack",
+    "repro",
+    "version"
+  ],
+  "missing": [],
+  "files": [
+    {
+      "path": "crash/crash.log",
+      "kind": "crash",
+      "bytes": 175,
+      "sha256": "b97176225423aebb0219aa9264a301077f932bdddfaab638cac5d2c314c20cdc"
+    },
+    {
+      "path": "repro/repro.sh",
+      "kind": "repro",
+      "bytes": 163,
+      "sha256": "19335e41e8a258b47d68c12f9b62ac7cc805f1607ee32889f331619934520815"
+    },
+    {
+      "path": "stack/stack.txt",
+      "kind": "stack",
+      "bytes": 755,
+      "sha256": "8f37b2091224eae22b8311c6feebb8ca61f4cd04536a849335a7202ada703642"
+    },
+    {
+      "path": "version/version.txt",
+      "kind": "version",
+      "bytes": 39,
+      "sha256": "6c61359999534364d281667ccf193b0aedd4b214a871664958669794009e6d9b"
+    }
+  ]
+}

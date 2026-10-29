@@ -1,0 +1,6 @@
+==4411==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000eff0
+READ of size 1 at 0x60200000eff0 thread T0
+    #0 0x4f2a1b in tokenize_line /build/release/src/lexer.c:214:9
+    #1 0x4f31c7 in lex_source /build/release/src/lexer.c:301:12
+    #2 0x4f44a0 in compile_module /build/release/src/compile.c:77:5
+    #3 0x4f9a11 in main /build/release/src/main.c:19:3

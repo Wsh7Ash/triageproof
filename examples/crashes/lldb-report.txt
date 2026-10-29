@@ -1,0 +1,6 @@
+* thread #4, stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+    frame #0: 0x0000000100003f2a app`parse_header at parse.c:88
+    frame #1: 0x0000000100003faa app`handle_request at handler.c:142
+    frame #2: 0x00000001000040b0 app`serve_forever at server.c:57
+    frame #3: 0x00000001000051c4 app`http_dispatch at http.c:204
+    frame #4: 0x00000001000052f0 app`connection_loop at http.c:301

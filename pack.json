@@ -1,0 +1,611 @@
+{
+  "name": "triageproof",
+  "version": "1.0.0",
+  "category": "bug-bounty-triage",
+  "license": "MIT",
+  "runtime": "Claude Code, opencode, or any agent runtime that loads SKILL.md files",
+  "description": "50 validated skills for making a crash claim survive triage: canonical signatures, clustering, dedupe against advisories, blocking evidence gates and tamper-evident bundles, with a CLI that does each of them.",
+  "skill_count": 50,
+  "skills": [
+    {
+      "slug": "crash-artifact-collection",
+      "title": "Crash Artifact Collection",
+      "path": "skills/crash-artifact-collection/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "evidence"
+      ],
+      "meta_phase": "capture",
+      "sha256": "28815fb4aa4924490bb0a0f451ea2ba07447ffa09d9d7b39425091bfe2f5458c"
+    },
+    {
+      "slug": "stack-capture-completeness",
+      "title": "Stack Capture Completeness",
+      "path": "skills/stack-capture-completeness/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "stack"
+      ],
+      "meta_phase": "capture",
+      "sha256": "48ce7fffb374512421524185a00ef4a0c556aad5701ab24f4b3fba225538b549"
+    },
+    {
+      "slug": "build-id-recording",
+      "title": "Build ID Recording",
+      "path": "skills/build-id-recording/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "versioning"
+      ],
+      "meta_phase": "capture",
+      "sha256": "e9567c8f946d242eb56642172c5379c0b887fe700867b6bbd96fd346a28c7c44"
+    },
+    {
+      "slug": "environment-capture",
+      "title": "Environment Capture",
+      "path": "skills/environment-capture/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "environment"
+      ],
+      "meta_phase": "capture",
+      "sha256": "044a6295ab71eee18f6243c730dca67807508694ce5e63f8355fd7e8d220cb7e"
+    },
+    {
+      "slug": "reproduction-command-capture",
+      "title": "Reproduction Command Capture",
+      "path": "skills/reproduction-command-capture/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "reproduction"
+      ],
+      "meta_phase": "capture",
+      "sha256": "60a066faef3ead07e5e65c5eb57d937f4b87649cc526b84c304e365955c929df"
+    },
+    {
+      "slug": "crash-rate-measurement",
+      "title": "Crash Rate Measurement",
+      "path": "skills/crash-rate-measurement/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "reliability"
+      ],
+      "meta_phase": "capture",
+      "sha256": "9906dd5c7bfba3c5ba9a4c37e691f405e2a39c5251727c536079dd27057e4190"
+    },
+    {
+      "slug": "sanitizer-output-preservation",
+      "title": "Sanitizer Output Preservation",
+      "path": "skills/sanitizer-output-preservation/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "sanitizer"
+      ],
+      "meta_phase": "capture",
+      "sha256": "30c1fc82489fdccc79600d5acd6ab83c59ab37714160cb55159a0fc4177b88de"
+    },
+    {
+      "slug": "signal-and-kind-classification",
+      "title": "Signal and Kind Classification",
+      "path": "skills/signal-and-kind-classification/SKILL.md",
+      "tags": [
+        "triage",
+        "capture",
+        "classification"
+      ],
+      "meta_phase": "capture",
+      "sha256": "776c9b3bd4de399051e19cdb9a30b7d712f1f55fe0e6a074be71716eda6273f0"
+    },
+    {
+      "slug": "frame-extraction",
+      "title": "Frame Extraction",
+      "path": "skills/frame-extraction/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "parsing"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "c1dfebd4b7826d90c62814b1b6da51b9e56853802d68e69d8c42a4b685a81902"
+    },
+    {
+      "slug": "address-stripping",
+      "title": "Address Stripping",
+      "path": "skills/address-stripping/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "signature"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "59553941896e956be3cc4ab1c00c71e7e418cedcc1191e7ee1c7da1f08f293ac"
+    },
+    {
+      "slug": "path-normalisation",
+      "title": "Path Normalisation",
+      "path": "skills/path-normalisation/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "signature"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "f6626d09da0bfc357dc3bcd9467b3ea5ba641455350ee14aee6dd77488dbe98d"
+    },
+    {
+      "slug": "noise-frame-removal",
+      "title": "Noise Frame Removal",
+      "path": "skills/noise-frame-removal/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "signature"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "cfe900a3814deb1af68e80afe258d348b4fcea2f58df027d341aeb5ee7203e20"
+    },
+    {
+      "slug": "inline-frame-collapse",
+      "title": "Inline Frame Collapse",
+      "path": "skills/inline-frame-collapse/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "inlining"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "1198946c8de5cb3f1c9e588c2141eaa073f9e2b56282d69a8a8196f4a9889ce7"
+    },
+    {
+      "slug": "template-argument-normalisation",
+      "title": "Template Argument Normalisation",
+      "path": "skills/template-argument-normalisation/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "c-plus-plus"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "aaffd31f7f21c665787170365648f10d22bd7ef098ab6a4884e090134ee6359d"
+    },
+    {
+      "slug": "depth-selection",
+      "title": "Depth Selection",
+      "path": "skills/depth-selection/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "signature"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "00d8004b2daaeb1a54b630b7bab4f1db18362ebab96248df6dbd77e2117941fb"
+    },
+    {
+      "slug": "signature-recomputation",
+      "title": "Signature Recomputation",
+      "path": "skills/signature-recomputation/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "verification"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "31604adb741bfddb93be889b9afdf2a0c18495b8ad07e546fae84726fcfc3223"
+    },
+    {
+      "slug": "signature-stability-check",
+      "title": "Signature Stability Check",
+      "path": "skills/signature-stability-check/SKILL.md",
+      "tags": [
+        "triage",
+        "canonicalise",
+        "verification"
+      ],
+      "meta_phase": "canonicalise",
+      "sha256": "aeba3fe3e33d97f1eec9323d9f980db22d4405feef5eea92feafa5b4178cdfd3"
+    },
+    {
+      "slug": "signature-bucketing",
+      "title": "Signature Bucketing",
+      "path": "skills/signature-bucketing/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "signature"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "2513852043ee1f305c7325f1e2ad8ffb3b13447ae6929ababc1aacaf84ebab19"
+    },
+    {
+      "slug": "similarity-threshold-calibration",
+      "title": "Similarity Threshold Calibration",
+      "path": "skills/similarity-threshold-calibration/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "calibration"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "bb8f35713efd3cac91a98c47ffb991a01e78eeb2d7611f0cd4c828f3d5d1a9a3"
+    },
+    {
+      "slug": "cross-tool-comparison",
+      "title": "Cross Tool Comparison",
+      "path": "skills/cross-tool-comparison/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "interop"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "e14d6965dac9d0e937ed2324e7896ec9b5bec9704b55277a2b642b157c87aa27"
+    },
+    {
+      "slug": "thread-and-process-separation",
+      "title": "Thread and Process Separation",
+      "path": "skills/thread-and-process-separation/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "concurrency"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "f665a099241834349f81697f0f1673753119502e93c906099b0d487aa9909328"
+    },
+    {
+      "slug": "cluster-labeling",
+      "title": "Cluster Labeling",
+      "path": "skills/cluster-labeling/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "reporting"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "451d3a7f81f2f76b61cce38366664ed14f00502e20b4f16157612767b5fd0aff"
+    },
+    {
+      "slug": "regression-cluster-detection",
+      "title": "Regression Cluster Detection",
+      "path": "skills/regression-cluster-detection/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "regression"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "fa1d79f3de7b8f8ac0049b44e21b6d1eacba7fe7e040dce1b52acf67a81304ce"
+    },
+    {
+      "slug": "cluster-size-triage",
+      "title": "Cluster Size Triage",
+      "path": "skills/cluster-size-triage/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "prioritisation"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "a8125dc42a6fee3b00a00caa93efad5a8276424abd03b584dba57a6c262ca58a"
+    },
+    {
+      "slug": "cluster-drift-tracking",
+      "title": "Cluster Drift Tracking",
+      "path": "skills/cluster-drift-tracking/SKILL.md",
+      "tags": [
+        "triage",
+        "cluster",
+        "trend"
+      ],
+      "meta_phase": "cluster",
+      "sha256": "f05e46ac58fdc3e90c3f7fff0129a9e58f838f2b72bc70644339419bb9551c55"
+    },
+    {
+      "slug": "advisory-search-first",
+      "title": "Advisory Search First",
+      "path": "skills/advisory-search-first/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "research"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "61270985f4ce5515c50a55839e1895024edeec8eb596b34a1649259154fa655d"
+    },
+    {
+      "slug": "prior-report-comparison",
+      "title": "Prior Report Comparison",
+      "path": "skills/prior-report-comparison/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "program"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "e7e16d5b4f491ff7b89b7157e1a2cf3c861df83c16975ebacd37cadb38266043"
+    },
+    {
+      "slug": "root-cause-equality",
+      "title": "Root Cause Equality",
+      "path": "skills/root-cause-equality/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "root-cause"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "841ffc3d10e927931ed450d0ce37398b22805dcd00956cf0f732abb3a2ef6630"
+    },
+    {
+      "slug": "symptom-versus-cause-dedupe",
+      "title": "Symptom Versus Cause Dedupe",
+      "path": "skills/symptom-versus-cause-dedupe/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "root-cause"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "41ef27ca44501681383de697658cb192c37d4a708d5fe62de45314acbed45a95"
+    },
+    {
+      "slug": "duplicate-evidence-writing",
+      "title": "Duplicate Evidence Writing",
+      "path": "skills/duplicate-evidence-writing/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "evidence"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "ab48e4d4ac2243d50293a22da0205fa223ae2f4f9dd32fac7cae622ba5d67710"
+    },
+    {
+      "slug": "variant-detection",
+      "title": "Variant Detection",
+      "path": "skills/variant-detection/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "variants"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "20cbce773cee433c64ed33d7bc145cc786bc5b2410d75f99467c6ac3461ad889"
+    },
+    {
+      "slug": "dedupe-verdict-recording",
+      "title": "Dedupe Verdict Recording",
+      "path": "skills/dedupe-verdict-recording/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "process"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "778b503d23ce41781a1fbd02caa30bee24d0349681078067b8e84ffba119bbfb"
+    },
+    {
+      "slug": "reopened-issue-check",
+      "title": "Reopened Issue Check",
+      "path": "skills/reopened-issue-check/SKILL.md",
+      "tags": [
+        "triage",
+        "dedupe",
+        "process"
+      ],
+      "meta_phase": "dedupe",
+      "sha256": "a47bf1fb25d5ef24a1e441c99213dcecdea0ea5451b5baec6aa2132f86ad76d6"
+    },
+    {
+      "slug": "record-field-completeness",
+      "title": "Record Field Completeness",
+      "path": "skills/record-field-completeness/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "completeness"
+      ],
+      "meta_phase": "grade",
+      "sha256": "ed630768599478b852d6f7dd9e11d6ba91f065c4ed981677fc4740c354cbbc9c"
+    },
+    {
+      "slug": "oracle-pair-checking",
+      "title": "Oracle Pair Checking",
+      "path": "skills/oracle-pair-checking/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "oracle"
+      ],
+      "meta_phase": "grade",
+      "sha256": "6d377efb01d790c6e9ede66aa1a0728d8cb8402ec0b1fcccf565621618bf5659"
+    },
+    {
+      "slug": "reproduction-determinism",
+      "title": "Reproduction Determinism",
+      "path": "skills/reproduction-determinism/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "reproduction"
+      ],
+      "meta_phase": "grade",
+      "sha256": "a31b2e4eabec918dc9ef37c8fe5f24e12c3e56de96102f2e56892fccb1622497"
+    },
+    {
+      "slug": "impact-scope-matching",
+      "title": "Impact Scope Matching",
+      "path": "skills/impact-scope-matching/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "impact"
+      ],
+      "meta_phase": "grade",
+      "sha256": "f92b003b70c08ce2b44448734c94fbeb34db596401409f878ecce56beb9f23e1"
+    },
+    {
+      "slug": "severity-justification",
+      "title": "Severity Justification",
+      "path": "skills/severity-justification/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "severity"
+      ],
+      "meta_phase": "grade",
+      "sha256": "4be3495481179d86c39e9ff8b6770d74d16ca55c1f33314db67554095d32da66"
+    },
+    {
+      "slug": "blocking-gate-review",
+      "title": "Blocking Gate Review",
+      "path": "skills/blocking-gate-review/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "process"
+      ],
+      "meta_phase": "grade",
+      "sha256": "05a8f9af0cb792a83b3bcf1a872ac8db273e3f2879f154ac3204ad9484ee1da0"
+    },
+    {
+      "slug": "grade-regression-testing",
+      "title": "Grade Regression Testing",
+      "path": "skills/grade-regression-testing/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "testing"
+      ],
+      "meta_phase": "grade",
+      "sha256": "826098804d852d1e96fb511063d3102560e5cee2e0e974888f21e8961d791962"
+    },
+    {
+      "slug": "record-immutability",
+      "title": "Record Immutability",
+      "path": "skills/record-immutability/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "integrity"
+      ],
+      "meta_phase": "grade",
+      "sha256": "dddb3319b9353c96fd71a04270b5170929a802678ab64079af7b4caf2b86d065"
+    },
+    {
+      "slug": "submission-readiness-review",
+      "title": "Submission Readiness Review",
+      "path": "skills/submission-readiness-review/SKILL.md",
+      "tags": [
+        "triage",
+        "grade",
+        "process"
+      ],
+      "meta_phase": "grade",
+      "sha256": "fa4a37f42f9d9bb6fee704d173c3189bb0c620b67366009b14140daea26a4a84"
+    },
+    {
+      "slug": "bundle-manifest-writing",
+      "title": "Bundle Manifest Writing",
+      "path": "skills/bundle-manifest-writing/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "evidence"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "821aa09e592e14f33673a9cd46aede10b9de5fd702d5c870b28feebefde1b8ea"
+    },
+    {
+      "slug": "hash-verification",
+      "title": "Hash Verification",
+      "path": "skills/hash-verification/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "integrity"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "5a6b927879fd3b943aede836fccff267b6a373adedcce75bbe130b1901b0221d"
+    },
+    {
+      "slug": "missing-file-detection",
+      "title": "Missing File Detection",
+      "path": "skills/missing-file-detection/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "completeness"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "ccd3cf74b40864c05fae9babc74c6006dd33be28c59ad93c47a8513504d200a3"
+    },
+    {
+      "slug": "redaction-before-hashing",
+      "title": "Redaction Before Hashing",
+      "path": "skills/redaction-before-hashing/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "redaction"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "799d03771fdbb30095fb6fbe33b78b5b93c262ec32419b94af6578cbbca07865"
+    },
+    {
+      "slug": "reproduction-replay-from-bundle",
+      "title": "Reproduction Replay From Bundle",
+      "path": "skills/reproduction-replay-from-bundle/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "reproduction"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "7926b1b75894f2540fe3a313917e97ac539702623ef7039a3896671d1d7ce91d"
+    },
+    {
+      "slug": "bundle-minimisation",
+      "title": "Bundle Minimisation",
+      "path": "skills/bundle-minimisation/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "process"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "14846877adeab964a6fad04531098854b9b9e784569bfcaf5ebe0bd66ddd118e"
+    },
+    {
+      "slug": "bundle-verification-report",
+      "title": "Bundle Verification Report",
+      "path": "skills/bundle-verification-report/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "reporting"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "633e2b19f6697f5dc429662ce1d843c30258ecacba1197df0f893a32db11fb1b"
+    },
+    {
+      "slug": "bundle-retention",
+      "title": "Bundle Retention",
+      "path": "skills/bundle-retention/SKILL.md",
+      "tags": [
+        "triage",
+        "bundle",
+        "process"
+      ],
+      "meta_phase": "bundle",
+      "sha256": "ea510abe7935a51a8f7e03c3c46b8d430cf8eb2c510a25dbdac2d537e54988e2"
+    }
+  ]
+}

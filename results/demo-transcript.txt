@@ -1,0 +1,46 @@
+$ triageproof validate
+triageproof: 50/50 skills valid
+  ok  steps>=6 signals>=4 patterns>=3 pitfalls>=3 words>=180 refs canonical https
+
+$ triageproof signature examples/crashes/gdb-report.txt --kind segv
+signature a540614c71147b9d  (7 frame(s) parsed, depth 5)
+  1. parse_header@parse.c
+  2. handle_request@handler.c
+  3. serve_forever@server.c
+  4. http_dispatch@http.c
+  5. connection_loop@http.c
+
+$ triageproof signature examples/crashes/lldb-report.txt --kind segv
+signature a540614c71147b9d  (5 frame(s) parsed, depth 5)
+  1. app!parse_header@parse.c
+  2. app!handle_request@handler.c
+  3. app!serve_forever@server.c
+  4. app!http_dispatch@http.c
+  5. app!connection_loop@http.c
+
+$ triageproof similar examples/crashes/gdb-report.txt examples/crashes/lldb-report.txt --kind segv
+gdb-report.txt vs lldb-report.txt: 1.000 -> duplicate
+  a540614c71147b9d  parse_header@parse.c, handle_request@handler.c, serve_forever@server.c
+  a540614c71147b9d  app!parse_header@parse.c, app!handle_request@handler.c, app!serve_forever@server.c
+
+$ triageproof dedupe examples/crashes/asan-other-bug.txt examples/crashes/gdb-report.txt --kind heap-buffer-overflow
+asan-other-bug.txt (27206d47267e4014): new  similarity 0.000
+  compared against 1 report(s)
+exit=0
+
+$ triageproof cluster 'examples/crashes/*.txt' --kind segv
+a540614c71147b9d  2 report(s)
+    gdb-report.txt
+    lldb-report.txt
+7277f3f0946cb192  1 report(s)
+    asan-other-bug.txt
+# 3 report(s) in 2 cluster(s)
+
+$ triageproof verify examples/evidence/manifest.json --root examples/evidence
+ok  4 file(s) match examples/evidence/manifest.json
+exit=0
+
+$ triageproof check examples/record.json --root examples
+parserd-2.3.0-segv-parse-header: grade A (100/100) submittable
+  signature a540614c71147b9d
+exit=0

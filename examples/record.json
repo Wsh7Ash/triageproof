@@ -1,0 +1,64 @@
+{
+  "schema": "triageproof/v1",
+  "id": "parserd-2.3.0-segv-parse-header",
+  "title": "Zero-length body with a 512-byte Content-Length crashes parse_header",
+  "reported_at": "2026-10-29",
+  "status": "triaged",
+  "target": {
+    "asset": "parserd 2.3.0",
+    "scope_ref": "program-scope#in-scope:parserd",
+    "version": "2.3.0",
+    "build_id": "7c1e9ab"
+  },
+  "crash": {
+    "kind": "segv",
+    "signal": "SIGSEGV at 0x0",
+    "stack_file": "evidence/stack/stack.txt"
+  },
+  "signature": "a540614c71147b9d",
+  "reproduction": {
+    "command": "sh evidence/repro/repro.sh",
+    "rate": "3/3 attempts on the release build",
+    "environment": "parserd 2.3.0 release, linux/amd64, unpatched"
+  },
+  "dedupe": {
+    "checked": true,
+    "against": [
+      "CVE feed search 2026-10-29: no match",
+      "upstream issues: no match"
+    ],
+    "verdict": "new"
+  },
+  "severity": {
+    "claim": "high",
+    "impact": "Remote unauthenticated denial of service: the worker aborts before parsing the body, so one request per connection exhausts the pool.",
+    "reachability": "pre-auth"
+  },
+  "root_cause": {
+    "file": "src/parse.c",
+    "line": 88,
+    "mechanism": "Content-Length is trusted without checking that the buffer is non-null, so memcpy dereferences a null body pointer when the length is non-zero and no body follows."
+  },
+  "evidence": [
+    {
+      "kind": "crash",
+      "ref": "evidence/crash/crash.log",
+      "sha256": "b97176225423aebb0219aa9264a301077f932bdddfaab638cac5d2c314c20cdc"
+    },
+    {
+      "kind": "repro",
+      "ref": "evidence/repro/repro.sh",
+      "sha256": "19335e41e8a258b47d68c12f9b62ac7cc805f1607ee32889f331619934520815"
+    },
+    {
+      "kind": "stack",
+      "ref": "evidence/stack/stack.txt",
+      "sha256": "8f37b2091224eae22b8311c6feebb8ca61f4cd04536a849335a7202ada703642"
+    },
+    {
+      "kind": "version",
+      "ref": "evidence/version/version.txt",
+      "sha256": "6c61359999534364d281667ccf193b0aedd4b214a871664958669794009e6d9b"
+    }
+  ]
+}
